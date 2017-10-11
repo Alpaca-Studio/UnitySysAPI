@@ -1,8 +1,8 @@
 # UnitySysAPI
-####v1.0.3
-####Unity5+
+#### v1.0.3
+#### Unity5+
 
-##About
+## About
 The **_Sys API_** is essentially an API layer for the _UnityEngine_. The _Sys_ class is added as a part of the _UnityEngine_ namespace. The Sys API adds new an array of new methods as well as alternatives some older ones. 
 
 For example, saving a screenshot via `Application.CaptureScreenshot (“Screenshot.png”)` works pretty well and is very easy to use. However if you wanna dictate where you save that screenshot, you will have to jump through a few hoops.
@@ -26,9 +26,9 @@ If there is an update available the newest _SYS_MASTER.cs_ will be downloaded an
 If somehow _SYS_MASTER.cs_ becomes corrupted you can press the _‘Force Update’_ button to grab the latest update from the server.
 
 Lastly, pressing ‘Example’ will generate a new game object named “SYS” and attach “Sys_API_CSharp_Example.cs” and “Sys_API_JS_Example.js” scripts (same as the “SYS” object in the Example scene).
-##Using the Sys API
+## Using the Sys API
 The Sys API handles a variety of methods, such as: Logging/Debugging; Data Handling; Screen Capturing/Loading; Arithmetic; and System Information. We will cover a few of these below.
-###Logging and Debugging
+### Logging and Debugging
 The Sys API logging and debugging methods are relatively simple and very similar to using Debug.Log. One way we elaborated upon the basic Debug.Log was to create a “silent log” that captures and timestamps log messages and then allows them to be saved to any desired location. This way developers access their log via txt file for more in depth debugging. But only user declared messages appear in the log. It does not add Engine or System logging.
 So to add a message to the silent log:
 
@@ -47,7 +47,7 @@ To save a log file you would use:
 
 Calling ‘Sys.SaveLog();’ will save to the default location of ‘[Application.persistentDataPath]/[Application.productName]/Logs/SysLog.txt’
 
-###Data Handling 
+### Data Handling 
 
 Saving and Loading data is confined into two methods:
 
@@ -67,7 +67,7 @@ Or
 
 Now let’s look a bit more into Screen Capturing.
 
-###Screen Capturing/ Image Loading
+### Screen Capturing/ Image Loading
 As stated above, capturing screenshots with the Sys API is a little different from using ```Application.CaptureScreenshot();```
 
 Anytime you use Sys screen capturing you must declare the MonoBehaviour instance as the first parameter of the method. 
@@ -83,7 +83,7 @@ Image loading is much like loading data in the section above. At this time the S
 
 Lastly we will look at System Information logging methods.
 
-###System Information
+### System Information
 The Sys API’s System Information methods are very useful for logging users system information. This section of the API essentially layers the _UnityEngine.SystemInfo_ variables into the Sys API. For example instead of calling `SystemInfo.batteryLevel` it can be shortened using `Sys.batteryLevel`. 
 You can export system info into a neatly formatted text file using:
 ```Sys.SaveSystemInfo (“Path/To/Save/SystemInfo.txt”);```
