@@ -28,7 +28,6 @@ public class SysOptions : EditorWindow {
 	}
 	
 	string _path;
-	//List<string> VC = new List<string>();
 	string _currentVersion;
 	string _documentation;
 
@@ -37,14 +36,7 @@ public class SysOptions : EditorWindow {
 	Vector2 _scrollPosition;
 	
 	GameObject obj;
-	
-	/*if(!Directory.Exists(Application.dataPath+ "/Plugins/SysAPI/")){
-		Directory.CreateDirectory(Application.dataPath+ "/Plugins/SysAPI/");
-		File.Create(Application.dataPath + "/Plugins/SysAPI/vc.dxt").Dispose();
-		System.Diagnostics.Process.Start(Application.dataPath + "/Plugins/SysAPI/");
-	}*/
 
-	
 	void OnEnable () {
 		_path = Application.dataPath + "/Plugins/SysAPI/";
 		if(!Directory.Exists(_path)){
