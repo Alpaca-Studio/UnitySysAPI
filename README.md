@@ -12,12 +12,11 @@ And the Sys API will handle all of the texture encoding and file saving. Continu
 ## Updating the Sys API
 In the _Sys API_ source package is two c# scripts that handle updating the API via the unity editor.
 To update the Sys API navigate to _‘Tools/SysAPI/Options’_ or alternatively press __Control+W__ to open the Sys Options editor window.
-![1.gif](/Documentation/Images/1.gif)You will see a new window appear that looks something like this:
-
+![1.gif](/Documentation/Images/1.gif)
+You will see a new window appear that looks something like this:
 ![2.png](/Documentation/Images/2.png)
 
 The options window contains three buttons: __Check For Updates; Force Update;__ and __Example__. Pressing _‘Check for Updates’_ will check your version versus the latest version of the Sys API. If you have the latest version you will receive this message:
-
 ![3.png](/Documentation/Images/3.png)
 
 If there is an update available the newest _SYS_MASTER.cs_ will be downloaded and saved to _‘/Assets/Plugins/SysAPI/SYS_MASTER.cs’_. After updating this message will display in the console:
