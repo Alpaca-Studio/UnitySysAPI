@@ -1,4 +1,4 @@
-//---SYS_MASTER.cs v1.0.3--- (c)2017 mcproj. Not for redistribution.///
+//---SYS_MASTER.cs v1.0.3--- Copyright (c)2017 mcproj - Alpaca Studio.//
 using System.Collections;
 using System.Collections.Generic;
 using System;
