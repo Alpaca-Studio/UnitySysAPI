@@ -34,7 +34,7 @@ public class SysUpdateDownloader : MonoBehaviour {
 		
 	}
 	
-	void InitDataFiles () { //First we read all lines of the 'repo.txt' and parse the name and url from eaching using string.Split method.
+	void InitDataFiles () {
 		if(File.ReadAllLines(_path+"vc.dxt")[0] != null){
 			string newVC = File.ReadAllLines(_path+"vc.dxt")[0];
 			if(newVC != _currentVersion){
@@ -53,7 +53,6 @@ public class SysUpdateDownloader : MonoBehaviour {
 		}
 	}
 	
-	//Here we download the file from the parsed url above and give it a corrosponding name.
 	IEnumerator DownloadDataFiles(string url, string fileName) {
 		WWW www = new WWW(url);
 		yield return www;
