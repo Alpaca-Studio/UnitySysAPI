@@ -92,10 +92,10 @@ And of course open the file directory by using:
 
 The formatted system info can also be cast into a list by using:
 ```List <string> sysInfo = new List <string>(Sys.GetSystemInfo());```
-[See Example]([Documentation/Images/5.png)
+[See Example]([/Documentation/Images/5.png)
 
 
 
-For more information try checking out the documentation. There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples]([Source/Assets/Sys_API/Examples).
+For more information try checking out the documentation. There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples]([/Source/Assets/Sys_API/Examples).
 
 _The Sys API is looking for contributors. If you would like to contribute a useful method or a shortcut, please send a message to @mcneproj so we can test and implement it into the api._
