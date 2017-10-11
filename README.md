@@ -1,6 +1,5 @@
 # UnitySysAPI
-#### v1.0.3
-#### Unity5+
+##### Version: v1.0.3 | Requirements: Unity5+
 
 ## About
 The **_Sys API_** is essentially an API layer for the _UnityEngine_. The _Sys_ class is added as a part of the _UnityEngine_ namespace. The Sys API adds new an array of new methods as well as alternatives some older ones. 
