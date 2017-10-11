@@ -1,8 +1,8 @@
-# UnitySysAPI
+# Sys API for Unity
 ##### Version: v1.0.3 | Requirements: Unity5+
 
 ## About
-The **_Sys API_** is essentially an API layer for the _UnityEngine_. The _Sys_ class is added as a part of the _UnityEngine_ namespace. The Sys API adds new an array of new methods as well as alternatives some older ones. 
+The **_Sys API_** is essentially an API layer for the _UnityEngine_. The Sys API adds new an array of new methods as well as alternatives some older ones. The _Sys_ class lies within the _UnityEngine_ namespace, so it will already be imported into your scripts, you could also choose to import the Sys class using `using UnityEngine.Sys;` in C#, or `import UnityEngine.Sys;` in Javascript.
 
 For example, saving a screenshot via `Application.CaptureScreenshot(“Screenshot.png”)` works pretty well and is very easy to use. However if you wanna dictate where you save that screenshot, you will have to jump through a few hoops.
 But with the Sys API you can simply use:
