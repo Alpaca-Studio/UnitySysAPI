@@ -4,9 +4,9 @@
 ## About
 The **_Sys API_** is essentially an API layer for the _UnityEngine_. The _Sys_ class is added as a part of the _UnityEngine_ namespace. The Sys API adds new an array of new methods as well as alternatives some older ones. 
 
-For example, saving a screenshot via `Application.CaptureScreenshot (“Screenshot.png”)` works pretty well and is very easy to use. However if you wanna dictate where you save that screenshot, you will have to jump through a few hoops.
+For example, saving a screenshot via `Application.CaptureScreenshot(“Screenshot.png”)` works pretty well and is very easy to use. However if you wanna dictate where you save that screenshot, you will have to jump through a few hoops.
 But with the Sys API you can simply use:
-```Sys.CaptureScreenshot (this, “Path/To/Screenshot.png”);```
+```Sys.CaptureScreenshot(this, “Path/To/Screenshot.png”);```
 And the Sys API will handle all of the texture encoding and file saving. Continue to _Using the Sys API_ to get started.
 
 ## Updating the Sys API
@@ -31,11 +31,11 @@ The Sys API handles a variety of methods, such as: Logging/Debugging; Data Handl
 The Sys API logging and debugging methods are relatively simple and very similar to using Debug.Log. One way we elaborated upon the basic Debug.Log was to create a “silent log” that captures and timestamps log messages and then allows them to be saved to any desired location. This way developers access their log via txt file for more in depth debugging. But only user declared messages appear in the log. It does not add Engine or System logging.
 So to add a message to the silent log:
 
-```Sys.Log (“This is a test!”);```
+```Sys.Log(“This is a test!”);```
 
 If you did however want to display the message in the Console you would:
 
-```Sys.Log (“This is a test!”, true);```
+```Sys.Log(“This is a test!”, true);```
 
 This will add the message to the log file and display it in the console window.
 
@@ -50,12 +50,12 @@ Calling ‘Sys.SaveLog();’ will save to the default location of ‘[Applicatio
 
 Saving and Loading data is confined into two methods:
 
-```Sys.SaveDataToFile (“Path/To/File.txt”);```
+```Sys.SaveDataToFile(“Path/To/File.txt”);```
 
-And ```Sys.LoadDataFromFile (“Path/To/File.txt”);```
+And ```Sys.LoadDataFromFile(“Path/To/File.txt”);```
 
 Also with the `SaveDataToFile` method you can open the saved file’s directory in file explorer via:
-```Sys.SaveDataToFile (“Path/To/File.txt”, true);```
+```Sys.SaveDataToFile(“Path/To/File.txt”, true);```
 It's recommended for use during development, untested in build.
 
 The `LoadDataFromFile` method makes it simple to cast a text file a string array or list. This can be done by using:
@@ -72,10 +72,10 @@ As stated above, capturing screenshots with the Sys API is a little different fr
 Anytime you use Sys screen capturing you must declare the MonoBehaviour instance as the first parameter of the method. 
 Using `Sys.CaptureScreenshot(this);` will save a screenshot to the default location: _‘[Application.persistentDataPath]/[Application.productName]/Screenshots/MMddyyyy - hhmmss.png’._
 
-To define a path and name of a screenshot use: `Sys.CaptureScreenshot (this, “Path/To/Screenshot.png”);` as stated above.
+To define a path and name of a screenshot use: `Sys.CaptureScreenshot(this, “Path/To/Screenshot.png”);` as stated above.
 
 Much like `SaveDataToFile`, the `CaptureScreenshot` method will open the png directory using:
-```Sys.CaptureScreenshot (this, “Path/To/Screenshot.png”, true);``` 
+```Sys.CaptureScreenshot(this, “Path/To/Screenshot.png”, true);``` 
 
 Image loading is much like loading data in the section above. At this time the Sys API only allows png images to be loaded into _Texture2D_ objects. To load a png image into a texture, you would use:
 ```Texture2D tex = Sys.LoadImageAtPath("Path_To_Image/SomeImage.png");```
@@ -85,12 +85,12 @@ Lastly we will look at System Information logging methods.
 ### System Information
 The Sys API’s System Information methods are very useful for logging users system information. This section of the API essentially layers the _UnityEngine.SystemInfo_ variables into the Sys API. For example instead of calling `SystemInfo.batteryLevel` it can be shortened using `Sys.batteryLevel`. 
 You can export system info into a neatly formatted text file using:
-```Sys.SaveSystemInfo (“Path/To/Save/SystemInfo.txt”);```
+```Sys.SaveSystemInfo(“Path/To/Save/SystemInfo.txt”);```
 And of course open the file directory by using:
-```Sys.SaveSystemInfo (“Path/To/Save/SystemInfo.txt”, true);```
+```Sys.SaveSystemInfo(“Path/To/Save/SystemInfo.txt”, true);```
 
 The formatted system info can also be cast into a list by using:
-```List <string> sysInfo = new List <string>(Sys.GetSystemInfo ());```
+```List <string> sysInfo = new List <string>(Sys.GetSystemInfo());```
 
 For more information try checking out the documentation. There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples]([Source/Assets/Sys_API/Examples).
 
