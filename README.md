@@ -11,7 +11,8 @@ And the Sys API will handle all of the texture encoding and file saving. Continu
 
 ## Updating the Sys API
 In the _Sys API_ source package is two c# scripts that handle updating the API via the unity editor.
-To update the Sys API navigate to _‘Tools/SysAPI/Options’_ or alternatively press __Control+W__ to open the Sys Options editor window. You will see a new window appear that looks something like this:
+To update the Sys API navigate to _‘Tools/SysAPI/Options’_ or alternatively press __Control+W__ to open the Sys Options editor window.
+![1.gif](/Documentation/Images/1.gif)You will see a new window appear that looks something like this:
 
 ![2.png](/Documentation/Images/2.png)
 
