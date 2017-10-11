@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class SysUpdateDownloader : MonoBehaviour {
 #if UNITY_EDITOR
-	string _versionURL = "https://pastebin.com/raw/yynXy2ij"; //"https://pastebin.com/raw/fcfvqrv3";
+	string _versionURL = "https://pastebin.com/raw/yynXy2ij";
 	string _sourceURL = "https://pastebin.com/raw/Rq8ZMZYU";
 	string _path;
-	//List<string> VC = new List<string>();
 	string _currentVersion;
 	public bool forceUpdate = false;
 	
