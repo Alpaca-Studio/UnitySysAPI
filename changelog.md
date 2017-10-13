@@ -1,29 +1,25 @@
-#SYS API v1+ CHANGE LOG
+## SYS API v1+ CHANGE LOG
 
-###[10/13/2017] - v1.0.4:
-
+### [10/13/2017] - v1.0.4:
 	-Added new dependencies to update package. ('SystemInformationLogger.cs', 'Sys_API_CSharp_Example.cs', 'Sys_API_JS_Example.js', 'Documentation.txt', and 'change.log')
 	-Increased update notifications.
 	-Added 'primitive' connection checking to update downloader.
 	-Minor bug fixes.
 	-Compiled updated Unity Asset Package file as 'UnityEngine.Sys_API_v1.0.4.unitypackage' file.
 
-###[10/13/2017] - v1.0.3c:
-
+### [10/13/2017] - v1.0.3c:
 	-Created 'SystemInformationLogger.cs' standalone editor script.
 	-Implemented 'Sys API Error Coding System'.
 	-Minor fixes/updates.
 
-###[10/11/2017] - v1.0.3b:
-
+### [10/11/2017] - v1.0.3b:
 	-Added Force Update method in the event of SYS_MASTER file corruption or compile error.
 	-Tweaked SYS Editor Window GUI layouts.
 	-Minor bug fixes.
 	-Compiled updated Unity Asset Package file as 'UnityEngine.Sys_API_v1.0.3b.unitypackage' file.
 
 
-###[10/10/2017] - v1.0.3:
-
+### [10/10/2017] - v1.0.3:
 	-Created bundle manager script as 'SysOptions.cs'.
 	-Created 'SysUpdateDownloader.cs' to check for and download future 'SYS_MASTER.cs' updates.
 	-Revised 'Documentation.txt'.
@@ -35,16 +31,14 @@
 	-Minor bug fixes.
 	-Compiled updated Unity Asset Package file as 'UnityEngine.Sys_API_v1.0.3.unitypackage' file.
 
-###[09/21/2017] - v1.0.2:
-
+### [09/21/2017] - v1.0.2:
 	-Added Basic Arethmetic Methods to 'SYS_MASTER.cs'.
 	-Added Hash Code Generation to 'SYS_MASTER.cs'.
 	-Updated 'Sys_API_Example' files with hash code generation examples.
 	-Updated 'Documentation.txt'.
 	-Compiled updated Unity Asset Package file as 'UnityEngine.Sys_API_v1.0.2.unitypackage' file.
 
-###[09/20/2017] - v1.0.1:
-
+### [09/20/2017] - v1.0.1:
 	-Renamed master file from 'AdvSysInfo.cs' to 'SYS_MASTER.cs'.
 	-Added 'ReadFile()' & 'SaveFile()' methods to 'SYS_MASTER.cs'.
 	-Added Inspector Attributes to 'Sys_API_Example.cs'.
@@ -57,8 +51,7 @@
 	-Updated 'Documentation.txt'.
 	-Compiled updated Unity Asset Package file as 'UnityEngine.Sys_API_v1.0.1.unitypackage' file.
 
-###[09/18/2017] - v1.0.0:
-
+### [09/18/2017] - v1.0.0:
 	-Created and Compiled initial alpha build files.
 	-Created 'Documentation.txt'.
 	-Compiled updated Unity Asset Package file as 'UnityEngine.Sys_API_v1.0.0.unitypackage' file.
