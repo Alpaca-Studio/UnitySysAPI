@@ -68,7 +68,7 @@ public class SysUpdateDownloader : MonoBehaviour {
 				Debug.LogWarning("[Sys API]: Downloading 'change.log'");
 				
 				File.Create(Application.dataPath + "/Editor/SystemInformationLogger.cs").Dispose();
-				StartCoroutine(DownloadDataFiles(_changelogURL,Application.dataPath + "/Editor/","SystemInformationLogger.cs"));
+				StartCoroutine(DownloadDataFiles(_silURL,Application.dataPath + "/Editor/","SystemInformationLogger.cs"));
 				Debug.LogWarning("[Sys API]: Downloading 'SystemInformationLogger.cs'");
 				
 				File.Create(Application.dataPath + "/Sys_API/Examples/Sys_API_CSharp_Example.cs").Dispose();
