@@ -1,4 +1,4 @@
-//---SYS_MASTER.cs v1.0.3--- Copyright (c)2017 mcproj - Alpaca Studio.//
+//---SYS_MASTER.cs v1.0.4--- Copyright (c)2017 Alpaca Studio [ http://alpaca.studio ]///
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -528,7 +528,7 @@ namespace UnityEngine {
 				newSysInfo.Add("OS: " + SystemInfo.operatingSystem);
 				newSysInfo.Add("OS Family: " + SystemInfo.operatingSystemFamily.ToString());
 				newSysInfo.Add("Processor Count: " + SystemInfo.processorCount);
-				newSysInfo.Add("Processor Frequency: " + SystemInfo.processorFrequency + "MHz");
+				newSysInfo.Add("Processor Frequency: " + (SystemInfo.processorFrequency*0.001) + "MHz");
 				newSysInfo.Add("Processor Type: " + SystemInfo.processorType);
 				newSysInfo.Add("Supported Render Targer Count: " + SystemInfo.supportedRenderTargetCount);
 				if(SystemInfo.supports2DArrayTextures){newSysInfo.Add("Supports 2D Array Textures : Yes");} else { newSysInfo.Add("Supports 2D Array Textures : No");}
