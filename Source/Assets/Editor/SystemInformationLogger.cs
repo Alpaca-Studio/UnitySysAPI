@@ -7,7 +7,7 @@ using UnityEditor;
 
 #if UNITY_EDITOR
 public class SystemInformationLogger : EditorWindow {
-	[MenuItem("Tools/Sys API/System Info")]
+	[MenuItem("Tools/System Info Logger")]
 	public static void ShowWindow () {
 		EditorWindow.GetWindow(typeof(SystemInformationLogger));
 	}
