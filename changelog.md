@@ -1,4 +1,4 @@
-## SYS API v1+ CHANGE LOG
+## Unity SYS API v1+ CHANGE LOG
 
 ### [10/13/2017] - v1.0.4b:
 	-Changed 'Hash Code Generation Methods' to 'Unique Identifier Generation Methods'.
