@@ -50,10 +50,10 @@ import UnityEngine.Sys;
 	
 	@HeaderAttribute("Hash Code Generation [Alpha]")
 	@Tooltip("Click this generate a random hash code")
-		var GenerateHashCode : boolean;
+		var GenerateUniqueID : boolean;
 	@Tooltip("This is current system's information cast to a list of strings. Activated by 'GetSystemInfo' boolean")
-		var hashCodeLength : int;
-		var hashCode : String;
+		var uIDLength : int;
+		var uniqueID : String;
 	
 	public function Awake () {
 		#if UNITY_EDITOR
@@ -149,8 +149,8 @@ import UnityEngine.Sys;
 			ClearSystemLog = false;
 		}
 		
-		if(GenerateHashCode){
-			hashCode = Sys.GenerateHashCode(hashCodeLength);
-			GenerateHashCode = false;
+		if(GenerateUniqueID){
+			uniqueID = Sys.GenerateUniqueID(uIDLength);
+			GenerateUniqueID = false;
 		}
 	}
