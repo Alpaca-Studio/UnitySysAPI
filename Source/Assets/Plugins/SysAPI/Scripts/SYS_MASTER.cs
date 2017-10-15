@@ -1,4 +1,4 @@
-//---SYS_MASTER.cs v1.0.4--- Copyright (c)2017 Alpaca Studio [ http://alpaca.studio ]///
+//---SYS_MASTER.cs v1.0.4b--- Copyright (c)2017 Alpaca Studio [ http://alpaca.studio ]///
 using System.Collections;
 using System.Collections.Generic;
 using System;
