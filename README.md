@@ -2,7 +2,7 @@
 ##### Version: v1.0.3 | Requirements: Unity5+
 
 ## About
-The **_Sys API_** is essentially an API layer for the _UnityEngine_. The Sys API adds an array of new methods as well as alternatives some older ones. The _Sys_ class lies within the _UnityEngine_ namespace, so it will already be imported into your scripts, you could also choose to import the Sys class via `using UnityEngine.Sys;` in C#, or `import UnityEngine.Sys;` in Javascript.
+The **_Sys API_** is essentially an API layer for the _UnityEngine_. The Sys API adds an array of new methods as well as alternatives some older ones. The _Sys_ class lies within the _UnityEngine_ namespace, so it will already be imported into your scripts. You could also choose to import the Sys class via `using UnityEngine.Sys;` in C#, or `import UnityEngine.Sys;` in Javascript.
 
 For example, saving a screenshot via `Application.CaptureScreenshot(“Screenshot.png”)` works pretty well and is very easy to use. However if you wanna dictate where you save that screenshot, you will have to jump through a few hoops.
 But with the Sys API you can simply use:
@@ -25,7 +25,7 @@ If there is an update available the newest _SYS_MASTER.cs_ will be downloaded an
 
 If somehow _SYS_MASTER.cs_ becomes corrupted you can press the _‘Force Update’_ button to grab the latest update from the server.
 
-Lastly, pressing ‘Example’ will generate a new game object named “SYS” and attach “Sys_API_CSharp_Example.cs” and “Sys_API_JS_Example.js” scripts (same as the “SYS” object in the Example scene).
+Lastly, pressing _‘Example’_ will generate a new game object named **_SYS_** and attach _Sys_API_CSharp_Example.cs_ and _Sys_API_JS_Example.js_ scripts (same as the _'SYS'_ object in the _Example.unity_ scene).
 ## Using the Sys API
 The Sys API handles a variety of methods, such as: Logging/Debugging; Data Handling; Screen Capturing/Loading; Arithmetic; and System Information. We will cover a few of these below.
 ### Logging and Debugging
@@ -92,10 +92,10 @@ And of course open the file directory by using:
 
 The formatted system info can also be cast into a list by using:
 ```List <string> sysInfo = new List <string>(Sys.GetSystemInfo());```
-[See Example]([/Documentation/Images/5.png)
+[See Example](https://github.com/mcneproj/UnitySysAPI/blob/master/Documentation/Images/5.png)
 
 
 
-For more information try checking out the documentation. There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples]([/Source/Assets/Sys_API/Examples).
+For more information try checking out the documentation. There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples](https://github.com/mcneproj/UnitySysAPI/tree/master/Source/Assets/Sys_API/Examples).
 
 _The Sys API is looking for contributors. If you would like to contribute a useful method or a shortcut, please send a message to @mcneproj so we can test and implement it into the api._
