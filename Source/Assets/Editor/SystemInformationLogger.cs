@@ -149,11 +149,12 @@ public class SystemInformationLogger : EditorWindow {
 		GUILayout.BeginHorizontal();
 		EditorGUILayout.Space();
 		if(GUILayout.Button("Export System Information", EditorStyles.miniButton)){
-			string fileName = "SystemInformation[" + System.DateTime.Now.ToString("MMddyyyy_hhmmss") +"].txt";
+			//string fileName = "SystemInformation[" + System.DateTime.Now.ToString("MMddyyyy_hhmmss") +"].txt";
+			string fileName = "SystemInformation.txt";
 			if(!File.Exists(fileName))File.Create(fileName).Dispose();
-			string _path = EditorUtility.OpenFilePanel("Export System Information File",fileName,"txt");
+			string _path = EditorUtility.SaveFilePanel("Export System Information File",Application.dataPath,fileName,"txt");
 			//int i = 0;
-			if(_path != null || _path.Length != 0){
+			if(_path != string.Empty){
 				File.Create(_path).Dispose();
 				foreach(string ab in sysInfo){
 						File.AppendAllText(_path, string.Format("{0} {1}", ab, System.Environment.NewLine));
