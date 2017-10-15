@@ -1,5 +1,10 @@
 //SYS API v1+ CHANGE LOG//
 
+[10/13/2017] - v1.0.4b:
+	-Changed 'Hash Code Generation Methods' to 'Unique Identifier Generation Methods'.
+	-Updated GitHub repositories to 1.0.4b.
+	-Swiched update repo host from pastebin to github.
+	
 [10/13/2017] - v1.0.4:
 	-Added new dependencies to update package. ('SystemInformationLogger.cs', 'Sys_API_CSharp_Example.cs', 'Sys_API_JS_Example.js', 'Documentation.txt', and 'change.log')
 	-Increased update notifications.
