@@ -556,7 +556,7 @@ namespace UnityEngine {
 		}
 	
 	//Miscellanous Operators//
-		public static string GenerateHashCode(int length) {
+		public static string GenerateUniqueID(int length) {
 			int a = 0;
 			string hc = "";
 			while(a<length){
