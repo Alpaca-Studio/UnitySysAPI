@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,10 +54,10 @@ public class Sys_API_CSharp_Example : MonoBehaviour {
 	
 	[HeaderAttribute("Hash Code Generation [Alpha]")]
 	[Tooltip("Click this generate a random hash code")]
-		public bool GenerateHashCode;
+		public bool GenerateUniqueID;
 	[Tooltip("This is current system's information cast to a list of strings. Activated by 'GetSystemInfo' boolean")]
-	public int hashCodeLength;
-	public string hashCode;
+	public int uIDLength;
+	public string uniqueID;
 	
 	[Space(12)]
 	
@@ -116,7 +116,7 @@ public class Sys_API_CSharp_Example : MonoBehaviour {
 		logData = Sys.logData;
 		//Sys.SaveLog(dataPath + "/" + logFileName, true);
 		//Sys.SaveSystemInfo(dataPath + "/" + sysFileName);
-		//hashCode = Sys.GenerateHashCode(21);
+		//uniqueID = Sys.GenerateUniqueID(21);
 		cProduct = Sys.cProduct(a,b);
 		
 	}
@@ -165,9 +165,9 @@ public class Sys_API_CSharp_Example : MonoBehaviour {
 			ClearSystemLog = false;
 		}
 		
-		if(GenerateHashCode){
-			hashCode = Sys.GenerateHashCode(hashCodeLength);
-			GenerateHashCode = false;
+		if(GenerateUniqueID){
+			uniqueID = Sys.GenerateUniqueID(uIDLength);
+			GenerateUniqueID = false;
 		}
 	}
 }
