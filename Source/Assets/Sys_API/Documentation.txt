@@ -243,12 +243,12 @@ SYSTEM INFORMATION METHODS:
 
 	
 	
-HASHCODE GENERATION METHODS:
-	public static string GenerateHashCode(int length)
-		-Returns a randomly generated hash code of a given length.
+UNIQUE IDENTIFIER GENERATION METHODS:
+	public static string GenerateUniqueID(int length)
+		-Returns a randomly generated identification code of any given length.
 				PARAMETERS:
-					length - desired length of the returned hash code.
+					length - desired length of the returned unique identifier.
 				USEAGE:
-					public string hashCode;
-						hashCode = Sys.GenerateHashCode(21);
+					public string uniqueID;
+						unique = Sys.GenerateUniqueID(21);
 	__________________________________________________________________________________________
