@@ -59,8 +59,8 @@ public class SysUpdateDownloader : MonoBehaviour {
 				
 				File.Create(Application.dataPath + "/Sys_API/Documentation.txt").Dispose();
 				StartCoroutine(DownloadDataFiles(_docuURL,Application.dataPath + "/Sys_API/","Documentation.txt"));
-				File.Create(Application.dataPath + "/Plugins/SysAPI/Documentation.txt").Dispose();
-				StartCoroutine(DownloadDataFiles(_docuURL,Application.dataPath + "/Plugins/SysAPI/","Documentation.txt"));
+				//File.Create(Application.dataPath + "/Plugins/SysAPI/Documentation.txt").Dispose();
+				//StartCoroutine(DownloadDataFiles(_docuURL,Application.dataPath + "/Plugins/SysAPI/","Documentation.txt"));
 				Debug.LogWarning("[Sys API]: Downloading 'Documentation.txt'");
 				
 				File.Create(Application.dataPath + "/Sys_API/change.log").Dispose();
@@ -97,11 +97,11 @@ public class SysUpdateDownloader : MonoBehaviour {
 		yield return www;
 		string file = www.text;
 		if(www.isDone){
-			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-089)");} else {
+			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-100)");} else {
 				File.AppendAllText(Application.dataPath + "/Plugins/SysAPI/Scripts/" + fileName, file);
 				Debug.LogWarning("[Sys API]: " + fileName+ " successfully updated.");
 				dlCount++;
-				if(dlCount >= 7){
+				if(dlCount >= 6){
 					UnityEditor.EditorPrefs.SetString("VC",_currentVersion);
 					Destroy(this.gameObject);
 					UnityEditor.EditorApplication.isPlaying = false;
@@ -116,13 +116,13 @@ public class SysUpdateDownloader : MonoBehaviour {
 		yield return www;
 		string file = www.text;
 		if(www.isDone){
-			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-108)");} else {
+			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-119)");} else {
 				File.Create(path + fileName).Dispose();
 				File.AppendAllText(path + fileName, file);
 				Debug.LogWarning("[Sys API]: " + fileName + " successfully updated.");
 				dlCount++;
 				//Debug.Log(dlCount);
-				if(dlCount >= 7){
+				if(dlCount >= 6){
 					UnityEditor.EditorPrefs.SetString("VC",_currentVersion);
 					Destroy(this.gameObject);
 					UnityEditor.EditorApplication.isPlaying = false;
