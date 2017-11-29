@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class SysUpdateDownloader : MonoBehaviour {
 #if UNITY_EDITOR
-	string _versionURL = "https://raw.githubusercontent.com/mcneproj/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/vc.dxt"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/yynXy2ij"; //"https://pastebin.com/raw/fcfvqrv3";
-	string _sourceURL = "https://raw.githubusercontent.com/mcneproj/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/Cs37xqMZ"; //"https://pastebin.com/raw/Rq8ZMZYU";
-	string _docuURL = "https://raw.githubusercontent.com/mcneproj/UnitySysAPI/master/Source/Assets/Sys_API/Documentation.txt"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/7qacsN6i";
-	string _sysCSURL = "https://raw.githubusercontent.com/mcneproj/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_CSharp_Example.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/VJ9GcLpd";
-	string _sysJSURL = "https://raw.githubusercontent.com/mcneproj/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_JS_Example.js";//"https://pastebin.com/raw/LGhfm1GK";
-	string _changelogURL = "https://raw.githubusercontent.com/mcneproj/UnitySysAPI/master/Source/Assets/Sys_API/change.log"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/qHJHdt8e";
-	string _silURL = "https://raw.githubusercontent.com/mcneproj/UnitySysAPI/master/Source/Assets/Editor/SystemInformationLogger.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/RbDeJA2A";
+	string _versionURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/vc.dxt"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/yynXy2ij"; //"https://pastebin.com/raw/fcfvqrv3";
+	string _sourceURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/Cs37xqMZ"; //"https://pastebin.com/raw/Rq8ZMZYU";
+	string _docuURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Documentation.txt"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/7qacsN6i";
+	string _sysCSURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_CSharp_Example.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/VJ9GcLpd";
+	string _sysJSURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_JS_Example.js";//"https://pastebin.com/raw/LGhfm1GK";
+	string _changelogURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/change.log"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/qHJHdt8e";
+	string _silURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Editor/SystemInformationLogger.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/RbDeJA2A";
 	string _path;
 	//List<string> VC = new List<string>();
 	string _currentVersion;
