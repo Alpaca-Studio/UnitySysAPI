@@ -1,7 +1,7 @@
 # Contributing to Development
 _The Unity Sys API is hosted and operated on github. Any contributions to the API should be submitted as pull requests. After you submit a pull request please give us 3-5 days to review, test, and inform you of our decision._
 
-Thank you for your interest in contributing to the Unity Sys API. We hope this project continues to grow and allow developers to create awesome stuff without time consuming, repetitive coding. The primary goal of the Unity Sys API is to simplify some of Unity’s methods as well as create more efficient ones.
+Thank you for your interest in contributing to the Unity Sys API. We hope this project continues to grow and allows developers to create awesome stuff without time consuming, repetitive coding. The primary goal of the Unity Sys API is to simplify some of Unity’s methods as well as create more efficient ones. They Sys API is ever-expanding thanks to contributors like you. You're awesome!
 
 #### Here you will learn:
 * Creating a fork from the _Alpaca-Studio/UnitySysAPI_ repository 
@@ -18,6 +18,11 @@ You should now have a copy of the repository on your github.
 ## Contributing to the Sys API
 After you have created a fork in your github you can now edit files in unity and/or directly on github. Be advised the following scripts are restricted and editing could result in your pull request being denied.
 The files _**vc.dxt, SysUpdateDownloader.cs, SysOptions.cs,**_ and _**SystemInformationLogger.cs**_ are _Unity Editor_ scripts maintained by _Alpaca Studio_. If you wish to edit _SysOptions.cs_ or _SystemInformationLogger.cs_, be sure to extensively test for errors and thoroughly detail the changes in the _Create Pull Request_ description area.
+
+Generally, most contributors will edit/update the **SYS_MASTER.cs** file. This file houses all the static methods available in the API. A good starting point would be to think of what methods you seem to find yourself coding over and over. Then translate that into a static function within the *SYS_MASTER.cs*. The main focus of the API is to create new, easier, more effiecent methods for Unity developers to use. 
+Like a hypothetical question there are no wrong answers. Anything you think could be useful to your fellow developers is welcome and much appriciated. However be sure to document anything you edit/add in the Documentation.
+
+
 ### Editing the Sys_Master
 Navigate to the [*Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs*]()
 
@@ -53,10 +58,11 @@ Any error message should be formatted like the following example:
 
 So the example states that the _Sys API_ threw a _“File or path not specified”_ error (aka Error 002) at _line 37_ in the _”Sys Update Downloader”_ class.
 
-Alternatively, you can use __*Sys.GetLine()*__ to automatically retrieve line number as opposed to editing manually (Recommended). To use ‘GetLine’ method, you would format your message string like this:
+Alternatively, you can use ```Sys.GetLine()``` to automatically retrieve line number as opposed to editing manually (Recommended). To use *GetLine* method, you would format your message string like this:
 ```“[Sys API] ERROR002: Path or File not specified. (EC-SUD-” + Sys.GetLine() + ”)”```
+After you have your error code you must add it to the ![Sys Message Library excel spreadsheet file](UnitySysAPI/Documentation/Sys Message Library.xlsx). 
 
-*^The Sys Message Library is only available on the github and will NOT be downloaded alongside other update files at this time.*
+**^**_The 'Sys Message Library' is only available on the github and will NOT be downloaded alongside other update files at this time._
 
 
 ### Updating Repository Files
