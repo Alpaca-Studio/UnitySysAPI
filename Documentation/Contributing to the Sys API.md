@@ -62,11 +62,9 @@ So the example states that the _Sys API_ threw a _“File or path not specified�
 Alternatively, you can use ```Sys.GetLine()``` to automatically retrieve line number as opposed to editing manually (Recommended). To use *GetLine* method, you would format your message string like this:
 ```“[Sys API] ERROR002: Path or File not specified. (EC-SUD-” + Sys.GetLine() + ”)”```
 
-UPDATE: As of 11/30/2017 you can now use *'Sys.GetErrorStackTrace()'*. 
-
-Example: ```“[Sys API] ERROR002: Path or File not specified. " + Sys.GetErrorStackTrace()```
-
-Output: *[Sys API] ERROR002: Path or File not specified. (EC-SystemUpdateDownloader.cs-37)*
+>(UPDATE: As of 11/30/2017 you can now use *'Sys.GetErrorStackTrace()'*. 
+>Example: ```“[Sys API] ERROR002: Path or File not specified. " + Sys.GetErrorStackTrace()```
+>Output: *[Sys API] ERROR002: Path or File not specified. (EC-SystemUpdateDownloader.cs-37)*)
 
 After you have created your error code you must add it to the [Sys Message Library spreadsheet file](UnitySysAPI/Documentation/Sys%20Message%20Library.xlsx). 
 
