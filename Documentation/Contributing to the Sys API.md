@@ -1,5 +1,5 @@
 # Contributing to Development
-####### _The Unity Sys API is hosted and operated on github. Any contributions to the API should be submitted as pull requests. After you submit a pull request please give us 3-5 days to review, test, and inform you of our decision._
+_The Unity Sys API is hosted and operated on github. Any contributions to the API should be submitted as pull requests. After you submit a pull request please give us 3-5 days to review, test, and inform you of our decision._
 
 Thank you for your interest in contributing to the Unity Sys API. We hope this project continues to grow and allow developers to create awesome stuff without time consuming, repetitive coding. The primary goal of the Unity Sys API is to simplify some of Unity’s methods as well as create more efficient ones.
 
