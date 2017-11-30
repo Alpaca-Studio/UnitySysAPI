@@ -1,5 +1,5 @@
 # Sys API for Unity
-##### Version: v1.0.4c | Requirements: Unity5+
+##### Version: v1.0.4 | Requirements: Unity5+
 
 ## About
 The **_Sys API_** is essentially an API layer for the _UnityEngine_. The Sys API adds an array of new methods as well as alternatives some older ones. The _Sys_ class lies within the _UnityEngine_ namespace, so it will already be imported into your scripts. You could also choose to import the Sys class via `using UnityEngine.Sys;` in C#, or `import UnityEngine.Sys;` in Javascript.
@@ -9,19 +9,21 @@ But with the Sys API you can simply use:
 ```Sys.CaptureScreenshot(this, “Path/To/Screenshot.png”);```
 And the Sys API will handle all of the texture encoding and file saving. Continue to _Using the Sys API_ to get started.
 
-## Updating the Sys API
+__*If you are looking for information about contributing to the UnitySysAPI, check out [this guide](UnitySysAPI/Documentation/Contributing%20to%20the%20Sys%20API).*__
+
+## Updating the Sys API via Unity Editor
 In the _Sys API_ source package is two c# scripts that handle updating the API via the unity editor.
 To update the Sys API navigate to _‘Tools/SysAPI/Options’_ or alternatively press __Control+W__ to open the Sys Options editor window.
 ![1.gif](/Documentation/Images/1.gif)
 
 You will see a new window appear that looks something like this:
-![2.png](/Documentation/Images/2.png)
+![2.png](UnitySysAPI/Documentation/Images/2.png)
 
 The options window contains three buttons: __Check For Updates; Force Update;__ and __Example__. Pressing _‘Check for Updates’_ will check your version versus the latest version of the Sys API. If you have the latest version you will receive this message:
-![3.png](/Documentation/Images/3.png)
+![3.png](UnitySysAPI/Documentation/Images/3.png)
 
 If there is an update available the newest _SYS_MASTER.cs_ will be downloaded and saved to _‘/Assets/Plugins/SysAPI/SYS_MASTER.cs’_. After updating this message will display in the console:
-![4.png](/Documentation/Images/4.png)
+![4.png](UnitySysAPI/DocumentationImages/4.png)
 
 If somehow _SYS_MASTER.cs_ becomes corrupted you can press the _‘Force Update’_ button to grab the latest update from the server.
 
@@ -92,10 +94,10 @@ And of course open the file directory by using:
 
 The formatted system info can also be cast into a list by using:
 ```List <string> sysInfo = new List <string>(Sys.GetSystemInfo());```
-[See Example](https://github.com/mcneproj/UnitySysAPI/blob/master/Documentation/Images/5.png)
+[See Example](UnitySysAPI/Documentation/Images/5.png)
 
 
 
-For more information try checking out the documentation. There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples](https://github.com/mcneproj/UnitySysAPI/tree/master/Source/Assets/Sys_API/Examples).
+For more information try checking out the documentation. There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples](UnitySysAPI/Source/Assets/Sys_API/Examples).
 
-_The Sys API is looking for contributors. If you would like to contribute a useful method or a shortcut, please send a message to @mcneproj so we can test and implement it into the api._
+_The Sys API is looking for contributors. If you would like to contribute a useful method or a shortcut, please send a message to_ @Alpaca-Studio _so we can test and implement it into the api._

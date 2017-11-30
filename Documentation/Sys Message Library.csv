@@ -1,0 +1,15 @@
+ERROR CODE,ERROR MESSAGE,TRIGGER,USEAGE
+000,Unable to establish connection.,Updater cannot connect to download server.,"Debug.LogError(""[Sys API] ERROR000: Unable to establish connection. (EC-XXX-000)"");  --or--   Debug.LogError(""[Sys API] ERROR000: Unable to establish connection. (EC-XXX-""+Sys.GetLine()+"")""); "
+001,[Echos WWW method errors],WWW method returned an error.,"Debug.LogError(""[Sys API] ERROR001: ""+WWW.error+"" (EC-XXX-000)"");  --or--  Debug.LogError(""[Sys API] ERROR001: ""+WWW.error+"" (EC-XXX-""+Sys.GetLine()+"")""); "
+002,File or path not specified.,The path defined does not exist.,"Debug.LogError(""[Sys API] ERROR002: Path or file not specified. (EC-XXX-000)"");  --or--  Debug.LogError(""[Sys API] ERROR002: Path or file not specified. (EC-XXX-""+Sys.GetLine()+"")""); "
+003,"Sys.Log(string, bool) has Invalid Arguments: (string) message cannot be null.",The string attribute of Sys.Log() is null.,"Debug.LogError(""[Sys API] ERROR003: Sys.Log(string, bool) has Invalid Arguments: (string) message cannot be null. (EC-XXX-000)"");  --or--  Debug.LogError(""[Sys API] ERROR003: Sys.Log(string, bool) has Invalid Arguments: (string) message cannot be null. (EC-XXX-""+Sys.GetLine()+"")""); "
+004,Path is null or empty.,A path variable is null or string is empty.,"Debug.LogError(""[Sys API] ERROR004: Path is null or empty. (EC-XXX-000)"");  --or--  Debug.LogError(""[Sys API] ERROR004: Path is null or empty. (EC-XXX-""+Sys.GetLine()+"")""); "
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
