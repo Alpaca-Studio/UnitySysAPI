@@ -60,7 +60,7 @@ So the example states that the _Sys API_ threw a _“File or path not specified�
 
 Alternatively, you can use ```Sys.GetLine()``` to automatically retrieve line number as opposed to editing manually (Recommended). To use *GetLine* method, you would format your message string like this:
 ```“[Sys API] ERROR002: Path or File not specified. (EC-SUD-” + Sys.GetLine() + ”)”```
-After you have your error code you must add it to the [SysMessageLibrary](UnitySysAPI/Documentation/Sys Message Library.xlsx). 
+After you have your error code you must add it to the [SysMessageLibrary](UnitySysAPI/Documentation/Sys%20Message%20Library.xlsx). 
 
 **^**_The 'Sys Message Library' is only available on the github and will NOT be downloaded alongside other update files at this time._
 
