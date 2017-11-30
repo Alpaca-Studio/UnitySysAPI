@@ -86,7 +86,7 @@ Image loading is much like loading data in the section above. At this time the S
 Lastly we will look at System Information logging methods.
 
 ### System Information
-The Sys API’s System Information methods are very useful for logging users system information. This section of the API essentially layers the _UnityEngine.SystemInfo_ variables into the Sys API. For example instead of calling `SystemInfo.batteryLevel` it can be shortened using `Sys.batteryLevel`. 
+The Sys API’s System Information methods are very useful for logging users system information. This section of the API essentially layers the _UnityEngine.SystemInfo_ variables into the Sys API. For example instead of calling `SystemInfo.batteryLevel`, you could use  `Sys.batteryLevel` to get the same result. 
 You can export system info into a neatly formatted text file using:
 ```Sys.SaveSystemInfo(“Path/To/Save/SystemInfo.txt”);```
 And of course open the file directory by using:
