@@ -133,6 +133,93 @@ namespace UnityEngine
 				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
 			}
         }
+	//DIRECTORY CHECKING//
+		//Creates a new directory
+		private static void CreateDirectory(string path){ 
+			Directory.CreateDirectory(path);
+			Log("[Sys API] Directory: "+path+" sucessfully created. "+GetStackTrace());
+		}
+		//Checks if a directory exists
+		public static bool DirectoryCheck (string path){
+			if(Directory.Exists (path)){return true;} 
+			else { return false;} 
+		}
+		//Checks if a directory exists, and creates the directory if not.
+		public static bool DirectoryCheck (string path, bool createDirectory){
+				if(Directory.Exists (path)){
+					return true;
+				} else { 
+					if (createDirectory){ 
+						CreateDirectory(path);
+						if(Directory.Exists(path)){
+							Log("[Sys API] Directory: "+path+" sucessfully created. "+GetStackTrace(),true);
+						}
+					}
+					return true;
+				} 
+		} 
+		//Creates an empty file at a given path.
+		private static void CreateEmptyFile(string path){ 
+				File.Create(path).Dispose();
+		}
+			private static void CreateEmptyFile(string path, string file){ 
+					File.Create(path+file).Dispose();
+			}
+		//Checks if a file already exists
+		public static bool FileCheck (string path){
+			if(File.Exists (path)){return true;} 
+			else { return false;} 
+		}
+			public static bool FileCheck (string path, string file){
+				if(File.Exists (path+file)){return true;} 
+				else { return false;} 
+			}
+		//Checks if a file already exists, if not an empty file will be created.
+		public static bool FileCheck (string path, bool createDispose){
+				if(File.Exists (path)){
+					return true;
+				} else { 
+					if (createDispose){ 
+						CreateEmptyFile(path);
+						if(File.Exists(path)){
+							Log("[Sys API] File: "+Path.GetFileName(path)+" sucessfully created. "+GetStackTrace());
+						}
+						return true;
+					} else {
+						return false;
+					}
+				} 
+		}
+			public static bool FileCheck (string path, string file, bool createDispose){
+				string newPath = path+file;
+					if(File.Exists (newPath)){
+						return true;
+					} else { 
+						if (createDispose){ 
+							CreateEmptyFile(newPath);
+							if(File.Exists(newPath)){
+								Log("[Sys API] File: "+Path.GetFileName(newPath)+" sucessfully created. "+GetStackTrace(),true);
+							}
+							return true;
+						} else {
+							return false;
+						}
+					} 
+			}
+		//Returns the external storage location per platform.
+		public static string DeviceExternalStorage(){
+			string dir = "";
+			#if UNITY_EDITOR
+				dir = Application.persistentDataPath;
+			#endif
+			#if UNITY_ANDROID && !UNITY_EDITOR
+				dir = "/storage/emulated/0";
+			#endif
+			#if UNITY_IOS && !UNITY_EDITOR
+				dir = Application.persistentDataPath;
+			#endif
+			return dir;
+		}
 
         // File Saving Methods//
         public static void SaveDataToFile(string path, string[] data)
