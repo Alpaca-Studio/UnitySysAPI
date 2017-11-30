@@ -49,6 +49,7 @@ Any error message should be formatted like the following example:
 ```[Sys API] ERROR002: Path or File not specified. (EC-SUD-037)```
 
 ##### Here’s a breakdown of the Sys API Error format:
+![ErrorFormat.png](/Documentation/Images/ErrorFormat.png)
 1. The API the error pertains to.
 2. The error code.
 3. The error message.
@@ -60,7 +61,12 @@ So the example states that the _Sys API_ threw a _“File or path not specified�
 
 Alternatively, you can use ```Sys.GetLine()``` to automatically retrieve line number as opposed to editing manually (Recommended). To use *GetLine* method, you would format your message string like this:
 ```“[Sys API] ERROR002: Path or File not specified. (EC-SUD-” + Sys.GetLine() + ”)”```
-After you have your error code you must add it to the [Sys Message Library spreadsheet file](UnitySysAPI/Documentation/Sys%20Message%20Library.xlsx). 
+
+UPDATE: As of 11/30/2017 you can now use *'Sys.GetErrorStackTrace()'*. 
+Example: ```“[Sys API] ERROR002: Path or File not specified. " + Sys.GetErrorStackTrace()```
+Output: *[Sys API] ERROR002: Path or File not specified. (EC-SystemUpdateDownloader.cs-37)*
+
+After you have created your error code you must add it to the [Sys Message Library spreadsheet file](UnitySysAPI/Documentation/Sys%20Message%20Library.xlsx). 
 
 **^**_The 'Sys Message Library' is only available on the github and will NOT be downloaded alongside other update files at this time._
 
