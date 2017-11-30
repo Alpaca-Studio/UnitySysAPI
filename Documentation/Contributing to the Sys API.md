@@ -63,7 +63,8 @@ Alternatively, you can use ```Sys.GetLine()``` to automatically retrieve line nu
 ```“[Sys API] ERROR002: Path or File not specified. (EC-SUD-” + Sys.GetLine() + ”)”```
 
 >(UPDATE: As of 11/30/2017 you can now use *'Sys.GetErrorStackTrace()'*. 
->Example: ```“[Sys API] ERROR002: Path or File not specified. " + Sys.GetErrorStackTrace()```
+>Example: 
+```“[Sys API] ERROR002: Path or File not specified. " + Sys.GetErrorStackTrace()```
 >Output: *[Sys API] ERROR002: Path or File not specified. (EC-SystemUpdateDownloader.cs-37)*)
 
 After you have created your error code you must add it to the [Sys Message Library spreadsheet file](UnitySysAPI/Documentation/Sys%20Message%20Library.xlsx). 
