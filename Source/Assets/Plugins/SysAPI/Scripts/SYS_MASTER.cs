@@ -1,4 +1,4 @@
-//---SYS_MASTER.cs v1.0.4b--- Copyright (c)2017 Alpaca Studio [ http://alpaca.studio ]///
+//---SYS_MASTER.cs v1.0.4--- Copyright (c)2017 Alpaca Studio [ http://alpaca.studio ]///
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -20,13 +20,15 @@ namespace UnityEngine
         {
             messages.Add(code, message);
         }
-
-        public static void Log(string message, bool showInConsole)
-        {
-            temp = message;
-            if (showInConsole) { Debug.Log(message); }
-            Handle(temp);
-        }
+		public static void Log (string message, bool showInConsole) {
+			if(message != null){
+				temp = message;
+				if(showInConsole){Debug.Log(message);}
+				Handle(temp);
+			} else {
+				Debug.LogError("[Sys API] ERROR003: Sys.Log(string, bool) has Invalid Arguments: (string) message cannot be null. "+Sys.GetErrorStackTrace());
+			}
+		}
 
         public static void Log(string message)
         {
@@ -101,6 +103,7 @@ namespace UnityEngine
         // Save the log to the given file path
         public static void SaveLog(string path)
         {
+			if(path != null){
             //logData.Clear();
             foreach (string message in logData)
             {
@@ -108,142 +111,179 @@ namespace UnityEngine
             }
             lastPath = path;
             Debug.Log("SysLog.txt saved to location: " + path);
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+			}
         }
 
         // Save the log to the given file path, specifying whether or not to open the directory
         public static void SaveLog(string path, bool openDir)
         {
-            //logData.Clear();
-            foreach (string message in logData)
-            {
-                File.AppendAllText(path, string.Format("{0}{1}", message.ToString(), System.Environment.NewLine));
-            }
-            if (openDir) { System.Diagnostics.Process.Start(path); }
-            lastPath = path;
-            Debug.Log("SysLog.txt saved to location: " + path);
-            Debug.Log("Opening Directory: " + path);
+			if(path != null){
+				//logData.Clear();
+				foreach (string message in logData)
+				{
+					File.AppendAllText(path, string.Format("{0}{1}", message.ToString(), System.Environment.NewLine));
+				}
+				if (openDir) { System.Diagnostics.Process.Start(path); }
+				lastPath = path;
+				Debug.Log("SysLog.txt saved to location: " + path);
+				Debug.Log("Opening Directory: " + path);
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+			}
         }
 
         // File Saving Methods//
         public static void SaveDataToFile(string path, string[] data)
         {
-            if (!File.Exists(path))
-            {
-                File.Create(path).Dispose();
-                foreach (string d in data)
-                {
-                    File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                }
-            }
-            else
-            {
-                File.Create(path).Dispose();
-                foreach (string d in data)
-                {
-                    File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                }
-            }
+			if(path != null){
+				if (!File.Exists(path))
+				{
+					File.Create(path).Dispose();
+					foreach (string d in data)
+					{
+						File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+					}
+				}
+				else
+				{
+					File.Create(path).Dispose();
+					foreach (string d in data)
+					{
+						File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+					}
+				}
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+			}
         }
 
         public static void SaveFile(string path, string[] data)
         {
-            if (!File.Exists(path))
-            {
-                File.Create(path).Dispose();
-                foreach (string d in data)
-                {
-                    File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                }
-            }
-            else
-            {
-                File.Create(path).Dispose();
-                foreach (string d in data)
-                {
-                    File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                }
-            }
+			if(path != null){
+				if (!File.Exists(path))
+				{
+					File.Create(path).Dispose();
+					foreach (string d in data)
+					{
+						File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+					}
+				}
+				else
+				{
+					File.Create(path).Dispose();
+					foreach (string d in data)
+					{
+						File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+					}
+				}
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+			}
         }
-
-        // DEPRECATED - REMOVE?
+        // Save the given data to the given file, specifying whether to append or overwrite
         public static void SaveDataToFile(string path, string[] data, bool clearOldFiles)
         {
-            if (!File.Exists(path))
-            {
-                File.Create(path).Dispose();
-                foreach (string d in data)
-                {
-                    File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                }
-            }
-            else
-            {
-                if (clearOldFiles)
-                {
-                    File.Create(path).Dispose();
-                    foreach (string d in data)
-                    {
-                        File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                    }
-                }
-                else
-                {
-                    foreach (string d in data)
-                    {
-                        File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                    }
-                }
-            }
+			if(path != null){
+				if (!File.Exists(path))
+				{
+					File.Create(path).Dispose();
+					foreach (string d in data)
+					{
+						File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+					}
+				}
+				else
+				{
+					if (clearOldFiles)
+					{
+						File.Create(path).Dispose();
+						foreach (string d in data)
+						{
+							File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+						}
+					}
+					else
+					{
+						foreach (string d in data)
+						{
+							File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+						}
+					}
+				}
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+			}
         }
-
-        // Save the given data to the given file, specifying whether to append or overwrite
+		
+        //'SaveDataToFile' Alternate
         public static void SaveFile(string path, string[] data, bool clearOldFiles)
         {
-            if (!File.Exists(path))
-            {
-                File.Create(path).Dispose();
-                foreach (string d in data)
-                {
-                    File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                }
-            }
-            else
-            {
-                if (clearOldFiles)
-                {
-                    File.Create(path).Dispose();
-                    foreach (string d in data)
-                    {
-                        File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                    }
-                }
-                else
-                {
-                    foreach (string d in data)
-                    {
-                        File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
-                    }
-                }
-            }
+			if(path != null){
+				if (!File.Exists(path))
+				{
+					File.Create(path).Dispose();
+					foreach (string d in data)
+					{
+						File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+					}
+				}
+				else
+				{
+					if (clearOldFiles)
+					{
+						File.Create(path).Dispose();
+						foreach (string d in data)
+						{
+							File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+						}
+					}
+					else
+					{
+						foreach (string d in data)
+						{
+							File.AppendAllText(path, string.Format("{0}{1}", d.ToString(), System.Environment.NewLine));
+						}
+					}
+				}
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+			}
         }
 
-        // DEPRECATED - REMOVE?
+        // Load data from a text file to a string array.
         public static string[] LoadDataFromFile(string path)
         {
-            string[] data = File.ReadAllLines(path);
-            return data;
+			if(path != null){
+				string[] data = File.ReadAllLines(path);
+				return data;
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+				return null;
+			}
         }
-
+		//'LoadDataFromFile' Alternate
         public static string[] ReadFile(string path)
         {
-            string[] data = File.ReadAllLines(path);
-            return data;
+			if(path != null){
+				string[] data = File.ReadAllLines(path);
+				return data;
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+				return null;
+			}
         }
-
+		// Load data from a text file to a string list.
         public static List<string> LoadDataListFromFile(string path)
         {
-            List<string> data = new List<string>(File.ReadAllLines(path));
-            return data;
+			if(path != null){
+				List<string> data = new List<string>(File.ReadAllLines(path));
+				return data;
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+				return null;
+			}
         }
 
         //Screen Capture Methods//
@@ -278,14 +318,6 @@ namespace UnityEngine
         {
             File.WriteAllBytes(path, tex.EncodeToPNG());
             if (openDir) { System.Diagnostics.Process.Start(path); }
-            /*byte[] bytes;
-			bytes = tex.EncodeToPNG();
-			FileStream fileStream;
-			fileStream = new FileStream(path, FileMode.Create);
-			BinaryWriter bin;
-			bin = new BinaryWriter(fileStream);
-			bin.Write(bytes);
-			fileStream.Close();*/
         }
 
         public static Texture2D ScreenToTexture2D()
@@ -420,7 +452,8 @@ namespace UnityEngine
 
         //System Information Methods//
         static string temporaryPath;
-        static int i;
+        static int itemCounter;
+		
         public static float batteryLevel() { return SystemInfo.batteryLevel; }
         public static BatteryStatus batteryStatus() { return SystemInfo.batteryStatus; }
         public static Rendering.CopyTextureSupport copyTextureSupport() { return SystemInfo.copyTextureSupport; }
@@ -470,32 +503,26 @@ namespace UnityEngine
 
         public static void SaveSystemInfo(string path)
         {
-            if (!File.Exists(path))
-            {
-                File.Create(path).Dispose();
-                temporaryPath = path;
-            }
-            else
-            {
-                temporaryPath = path;
-            }
-            i = 0; // what?
-            WriteDataToFile(GetSystemInfo(), false);
+           SaveSystemInfo(path, false);
         }
 
         public static void SaveSystemInfo(string path, bool openDir)
         {
-            if (!File.Exists(path))
-            {
-                File.Create(path).Dispose();
-                temporaryPath = path;
-            }
-            else
-            {
-                temporaryPath = path;
-            }
-            i = 0; // what?
-            WriteDataToFile(GetSystemInfo(), openDir);
+			if(path != null){
+				if (!File.Exists(path))
+				{
+					File.Create(path).Dispose();
+					temporaryPath = path;
+				}
+				else
+				{
+					temporaryPath = path;
+				}
+				itemCounter = 0;
+				WriteDataToFile(GetSystemInfo(), openDir);
+			} else {
+				Debug.LogError("[Sys API] ERROR004: Path is null or empty. (EC-SYS-"+GetLine()+")");
+			}
         }
 
         static void WriteDataToFile(List<string> sysInfo, bool openDir)
@@ -503,11 +530,12 @@ namespace UnityEngine
             foreach (string ab in sysInfo)
             {
                 File.AppendAllText(temporaryPath, string.Format("{0} {1}", ab, System.Environment.NewLine));
-                i++; // why is this?
+                itemCounter++;
             }
-            if (i >= (sysInfo.ToArray().Length)) { i = 0; sysInfo.Clear(); } // what?
+            if (itemCounter >= (sysInfo.ToArray().Length)) { itemCounter = 0; sysInfo.Clear(); }
             if (openDir) { System.Diagnostics.Process.Start(temporaryPath); } //Debug.Log("[Sys]: Opening File Location...");}	
         }
+		
 
         public static List<string> GetSystemInfo()
         {
@@ -600,5 +628,41 @@ namespace UnityEngine
             string returnChar = alp[Random.Range(0, alp.Length)];
             return returnChar;
         }
+		
+		public static int GetLine(){
+			System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace(0,true);
+			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount -1);
+			int line = stackFrame.GetFileLineNumber(); 
+			return line;
+		}
+		
+		public static string GetErrorStackTrace(){
+			System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace(0,true);
+			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount -1);
+			string file = stackFrame.GetFileName();
+			//string method = stackFrame.GetMethod().ToString();
+			int line = stackFrame.GetFileLineNumber();
+			string trace = string.Format("({0}-{1}-{2})","EC",Path.GetFileName(file),line);			
+			return trace;
+		}
+		public static string GetStackTrace(){
+			System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace(0,true);
+			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount -1);
+			string file = stackFrame.GetFileName();
+			string method = stackFrame.GetMethod().ToString();
+			int line = stackFrame.GetFileLineNumber();
+			string trace = string.Format("{0}({1}:{2})",method,Path.GetFileName(file),line);			
+			return trace;
+		}
+		public static string FormatStackTrace(string format){
+			System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace(0,true);
+			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount -1);
+			string file = stackFrame.GetFileName();
+			string method = stackFrame.GetMethod().ToString();
+			int line = stackFrame.GetFileLineNumber();
+			string trace = string.Format(format,method,Path.GetFileName(file),line);			
+			return trace;
+		}
+		
     }
 }
