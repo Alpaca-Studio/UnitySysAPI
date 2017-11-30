@@ -68,18 +68,14 @@ public class Sys_API_CSharp_Example : MonoBehaviour {
 	public int[] b = new int[]{1,1,2,3};
 	
 	public void Awake () {
-		#if UNITY_EDITOR
-			dir = Application.persistentDataPath;
-			//dir = Application.dataPath;
+		/*#if UNITY_EDITOR
+		dir = Application.persistentDataPath;
 		#endif
 		#if UNITY_ANDROID && !UNITY_EDITOR
 			dir = "/storage/emulated/0";
-			//dir = Application.persistentDataPath;
-			//dir = Application.dataPath;
 		#endif
 		#if UNITY_IOS && !UNITY_EDITOR
 			dir = Application.persistentDataPath;
-			//dir = Application.dataPath;
 		#endif
 		dataPath = dir + "/" + Application.productName + "/Logs";
 		if(!Directory.Exists(dataPath)){
@@ -93,7 +89,12 @@ public class Sys_API_CSharp_Example : MonoBehaviour {
 			} else {
 				dataPath = dir + "/"+ Application.productName + "/Logs";
 			}
-			
+		}*/
+
+		dir = Sys.DeviceExternalStorage();
+		dataPath = dir + "/" + Application.productName + "/Logs2";
+		if(Sys.DirectoryCheck(dataPath,true)){
+			Sys.FileCheck(dataPath+"/", logFileName, true);
 		}
 	}
 	void Start () {
