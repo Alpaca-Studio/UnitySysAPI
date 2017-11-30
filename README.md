@@ -8,6 +8,7 @@ For example, saving a screenshot via `Application.CaptureScreenshot(“Screensho
 But with the Sys API you can simply use:
 ```Sys.CaptureScreenshot(this, “Path/To/Screenshot.png”);```
 And the Sys API will handle all of the texture encoding and file saving. Continue to _Using the Sys API_ to get started.
+
 __*If you are looking for information about contributing to the UnitySysAPI, check out [this guide](UnitySysAPI/Documentation/Contributing%20to%20the%20Sys%20API).*__
 
 ## Updating the Sys API via Unity Editor
