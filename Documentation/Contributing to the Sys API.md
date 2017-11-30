@@ -100,4 +100,4 @@ This will take you to the create pull request screen as displayed here:
 ![CreatePullReq.png](/Documentation/Images/CreatePullReq.png)
 Double check your files and make sure everything looks correct. In the title section briefly describe what you’ve changed. Then give a detailed summary in the description area below. After you are completed with the title and description you should then create your pull request.
 
-After you have submitted the request give us a few days to check everything over and get back to you. Within a week you should receive a response from us regarding your pull request.
+After you have submitted the request give us a few days to check everything over and get back to you. Within a week you should receive a response from us regarding your pull request. Your contributions will be live with the next update bundle. Thanks for your interest in contributing :D
