@@ -35,7 +35,7 @@ public class SysUpdateDownloader : MonoBehaviour {
 		yield return www;
 		string file = www.text;
 		if(www.error != null){Debug.LogError("[Sys API] ERROR001: "+www.error+" (EC-SUD-037)");}
-		if(file.Length == 0 || file == null){Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-036)");} else {
+		if(file.Length == 0 || file == null){Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-"+Sys.GetLine()+")");} else {
 			File.Create(_path+"vc.dxt").Dispose();
 			File.WriteAllText(_path+"vc.dxt", file); 
 			InitDataFiles();
@@ -97,7 +97,7 @@ public class SysUpdateDownloader : MonoBehaviour {
 		yield return www;
 		string file = www.text;
 		if(www.isDone){
-			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-100)");} else {
+			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-"+Sys.GetLine()+")");} else {
 				File.AppendAllText(Application.dataPath + "/Plugins/SysAPI/Scripts/" + fileName, file);
 				Debug.LogWarning("[Sys API]: " + fileName+ " successfully updated.");
 				dlCount++;
@@ -116,7 +116,7 @@ public class SysUpdateDownloader : MonoBehaviour {
 		yield return www;
 		string file = www.text;
 		if(www.isDone){
-			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-119)");} else {
+			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-"+Sys.GetLine()+")");} else {
 				File.Create(path + fileName).Dispose();
 				File.AppendAllText(path + fileName, file);
 				Debug.LogWarning("[Sys API]: " + fileName + " successfully updated.");
