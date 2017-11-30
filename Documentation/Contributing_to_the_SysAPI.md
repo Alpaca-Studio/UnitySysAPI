@@ -24,7 +24,7 @@ Like a hypothetical question there are no wrong answers. Anything you think coul
 
 
 ### Editing the Sys_Master
-Navigate to the [*Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs*](UnitySysAPI/Source/Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs)
+Navigate to the [*Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs*](/Source/Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs)
 
 Once you have the *Sys_Master* file open in a text editor, find the category best suited for your new method. If none seem to fit you can place it under “*Miscellaneous*” or create a new category.
 
@@ -68,7 +68,7 @@ Alternatively, you can use ```Sys.GetLine()``` to automatically retrieve line nu
 
 >**Output:** *[Sys API] ERROR002: Path or File not specified. (EC-SystemUpdateDownloader.cs-37)*
 
-After you have created your error code you must add it to the [Sys Message Library spreadsheet file](UnitySysAPI/Documentation/Sys%20Message%20Library.xlsx). 
+After you have created your error code you must add it to the [Sys Message Library spreadsheet file](/Documentation/Sys%20Message%20Library.xlsx). 
 
 **^**_The 'Sys Message Library' is only available on the github and will NOT be downloaded alongside other update files at this time._
 
@@ -76,8 +76,8 @@ After you have created your error code you must add it to the [Sys Message Libra
 ### Updating Repository Files
 First, open the UnitySysAPI fork on your github. Next you will want to upload your new files to the exact directory displayed in the repository. If you created new directories and/or files be sure to add them accordingly.
 
-So if you edited the **SYS_MASTER.cs** file at [*Assets/Plugins/SysAPI/Scripts*](UnitySysAPI/Source/Assets/Plugins/SysAPI/Scripts), you should delete the old **SYS_MASTER.cs** from your repository and then upload your new **SYS_MASTER.cs**.
-Also do the same with [Documentation.txt](UnitySysAPI/Source/Assets/SysAPI/Documentation.txt) at *Assets/SysAPI/*.
+So if you edited the **SYS_MASTER.cs** file at [*Assets/Plugins/SysAPI/Scripts*](/Source/Assets/Plugins/SysAPI/Scripts), you should delete the old **SYS_MASTER.cs** from your repository and then upload your new **SYS_MASTER.cs**.
+Also do the same with [Documentation.txt](/Source/Assets/SysAPI/Documentation.txt) at *Assets/SysAPI/*.
 
 Ideally we would like for you to edit files directly on the github. An easy way to do this would be:
 1. Open file in github’s editor.
