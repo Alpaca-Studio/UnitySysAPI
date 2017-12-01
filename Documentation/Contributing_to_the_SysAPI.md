@@ -91,13 +91,17 @@ After all your changes are on your forked repository you can now create a pull r
 
 ## Creating a Pull Request
 At the homepage of your repository find the *Pull Requests* tab on the repository toolbar.
+
 ![PullReq.png](/Documentation/Images/PullReq.png)
 
 On the right you will see a *Create Pull Request* button.
+
 ![NewPullReq.png](/Documentation/Images/NewPullReq.png)
 
 This will take you to the create pull request screen as displayed here:
+
 ![CreatePullReq.png](/Documentation/Images/CreatePullReq.png)
+
 Double check your files and make sure everything looks correct. In the title section briefly describe what you’ve changed. Then give a detailed summary in the description area below. After you are completed with the title and description you should then create your pull request.
 
 After you have submitted the request give us a few days to check everything over and get back to you. Within a week you should receive a response from us regarding your pull request. Your contributions will be live with the next update bundle. Thanks for your interest in contributing :D
