@@ -55,9 +55,30 @@ namespace UnityEngine
             Log(messages[messageCode].ToString() + " from " + M.ToString() + " ID# " + M.GetInstanceID(), showInConsole);
         }
 
+        public static void LogError(string message)
+        {
+            LogError(message, false);
+        }
+		
+		public static void LogError (string message, bool showInConsole) {
+			if(message != null){
+				temp = message + "  -  " + GetErrorStackTrace(-1);
+				if(showInConsole){Debug.LogError(message);}
+				HandleError(temp);
+			} else {
+				Debug.LogError("[Sys API] ERROR003: Sys.LogError(string, bool) has Invalid Arguments: (string) message cannot be null. "+Sys.GetErrorStackTrace());
+			}
+		}
         private static void Handle(string message)
         {
             string output = "[" + System.DateTime.Now + "]: " + message;
+            logData.Add(output);
+            logRaw.Add(message);
+        }
+		
+		 private static void HandleError(string message)
+        {
+            string output = "[" + System.DateTime.Now + "]: ERROR!!! " + message;
             logData.Add(output);
             logRaw.Add(message);
         }
@@ -725,7 +746,16 @@ namespace UnityEngine
 		
 		public static string GetErrorStackTrace(){
 			System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace(0,true);
-			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount -1);
+			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount - 1);
+			string file = stackFrame.GetFileName();
+			//string method = stackFrame.GetMethod().ToString();
+			int line = stackFrame.GetFileLineNumber();
+			string trace = string.Format("({0}-{1}-{2})","EC",Path.GetFileName(file),line);			
+			return trace;
+		}
+		public static string GetErrorStackTrace(int frames){
+			System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace(0,true);
+			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount + frames);
 			string file = stackFrame.GetFileName();
 			//string method = stackFrame.GetMethod().ToString();
 			int line = stackFrame.GetFileLineNumber();
@@ -749,6 +779,55 @@ namespace UnityEngine
 			int line = stackFrame.GetFileLineNumber();
 			string trace = string.Format(format,method,Path.GetFileName(file),line);			
 			return trace;
+		}
+		public static string FormatStackTrace(string format, bool getFileName, bool getMethodName, bool getLineNumber){
+			System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace(0,true);
+			System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(stackTrace.FrameCount -1);
+			string file = stackFrame.GetFileName();
+			string method = stackFrame.GetMethod().ToString();
+			int line = stackFrame.GetFileLineNumber();
+			string trace = null;
+			//int index = 0; //[0 F,M,L] [1 F,M] [2 F,L] [3 M,L] [4 F] [5 L] [6 M] [7 ---]
+			if(getFileName){
+				if(getMethodName && getLineNumber){
+					//index = 0;
+					trace = string.Format(format,Path.GetFileName(file),method,line);
+				}
+				if(getMethodName && !getLineNumber){
+					//index = 1;
+					trace = string.Format(format,Path.GetFileName(file),method);
+				}
+				if(!getMethodName && getLineNumber){
+					//index = 2;
+					trace = string.Format(format,Path.GetFileName(file),line);
+				}
+				if(!getMethodName && !getLineNumber){
+					//index = 4;
+					trace = string.Format(format,Path.GetFileName(file));
+				}
+				return trace;
+			} else {
+				if(getMethodName && getLineNumber){
+					//index = 3;
+					trace = string.Format(format,method,line);
+				}
+				if(!getMethodName && getLineNumber){
+					//index = 5;
+					trace = string.Format(format,line);
+				}
+				if(getMethodName && !getLineNumber){
+					//index = 6;
+					trace = string.Format(format,method);
+				}
+				if(!getMethodName && !getLineNumber){
+					//index = 7;
+					LogError("Invalid Arguments.",true);
+					trace = "Error!";
+				}
+				return trace;
+			}
+			
+			
 		}
 		
     }
