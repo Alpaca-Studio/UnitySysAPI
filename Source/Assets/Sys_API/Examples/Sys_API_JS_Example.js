@@ -1,6 +1,4 @@
-import System.IO;
 import System.Collections.Generic;
-import UnityEngine.Sys;
 
 @HeaderAttribute("Directory Info")
 	@Tooltip("This is the filename for exported Sys.Log data")
@@ -56,31 +54,10 @@ import UnityEngine.Sys;
 		var uniqueID : String;
 	
 	public function Awake () {
-		#if UNITY_EDITOR
-			dir = Application.persistentDataPath;
-			//dir = Application.dataPath;
-		#endif
-		#if UNITY_ANDROID && !UNITY_EDITOR
-			dir = "/storage/emulated/0";
-			//dir = Application.persistentDataPath;
-			//dir = Application.dataPath;
-		#endif
-		#if UNITY_IOS && !UNITY_EDITOR
-			dir = Application.persistentDataPath;
-			//dir = Application.dataPath;
-		#endif
-		dataPath = dir + "/" + Application.productName + "/Logs";
-		if(!Directory.Exists(dataPath)){
-			Directory.CreateDirectory(dataPath);
-			File.Create(dataPath + "/" + logFileName).Dispose();
-			dataPath = dir + "/"+ Application.productName + "/Logs";
-		} else {
-			if(!File.Exists(dataPath + "/" + logFileName)){
-				File.Create(dataPath + "/" + logFileName).Dispose();
-				dataPath = dir + "/"+ Application.productName + "/Logs";
-			} else {
-				dataPath = dir + "/"+ Application.productName + "/Logs";
-			}
+		dir = Sys.DeviceExternalStorage();
+		dataPath = dir + "/" + Application.productName + "/Logs2";
+		if(Sys.DirectoryCheck(dataPath,true)){
+			Sys.FileCheck(dataPath+"/", logFileName, true);
 		}
 	}
 	function Start () {
