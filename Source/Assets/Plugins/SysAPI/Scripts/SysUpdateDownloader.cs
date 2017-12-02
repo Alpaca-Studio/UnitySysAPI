@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class SysUpdateDownloader : MonoBehaviour {
 #if UNITY_EDITOR
-	string _versionURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/vc.dxt"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/yynXy2ij"; //"https://pastebin.com/raw/fcfvqrv3";
-	string _sourceURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/Cs37xqMZ"; //"https://pastebin.com/raw/Rq8ZMZYU";
-	string _docuURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Documentation.txt"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/7qacsN6i";
-	string _sysCSURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_CSharp_Example.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/VJ9GcLpd";
-	string _sysJSURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_JS_Example.js";//"https://pastebin.com/raw/LGhfm1GK";
-	string _changelogURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/change.log"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/qHJHdt8e";
-	string _silURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Editor/SystemInformationLogger.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");//"https://pastebin.com/raw/RbDeJA2A";
+	string _versionURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/vc.dxt"+Sys.URLAntiCache();
+	string _sourceURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Plugins/SysAPI/Scripts/SYS_MASTER.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");
+	string _docuURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Documentation.txt"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");
+	string _sysCSURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_CSharp_Example.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");
+	string _sysJSURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/Examples/Sys_API_JS_Example.js";
+	string _changelogURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Sys_API/change.log"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");
+	string _silURL = "https://raw.githubusercontent.com/Alpaca-Studio/UnitySysAPI/master/Source/Assets/Editor/SystemInformationLogger.cs"+"?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");
 	string _path;
 	//List<string> VC = new List<string>();
 	string _currentVersion;
@@ -35,7 +35,7 @@ public class SysUpdateDownloader : MonoBehaviour {
 		yield return www;
 		string file = www.text;
 		if(www.error != null){Debug.LogError("[Sys API] ERROR001: "+www.error+" (EC-SUD-037)");}
-		if(file.Length == 0 || file == null){Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-"+Sys.GetLine()+")");} else {
+		if(file.Length == 0 || file == null){Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-036)");} else {
 			File.Create(_path+"vc.dxt").Dispose();
 			File.WriteAllText(_path+"vc.dxt", file); 
 			InitDataFiles();
@@ -48,11 +48,7 @@ public class SysUpdateDownloader : MonoBehaviour {
 			string newVC = File.ReadAllLines(_path+"vc.dxt")[0];
 			if(newVC != _currentVersion || forceUpdate){
 				File.Create(Application.dataPath + "/Plugins/SysAPI/Scripts/SYS_MASTER.cs").Dispose();
-				
-				//Debug.LogWarning("[Sys API]: Downloading Sys API v" + newVC );
-				//StartCoroutine(DownloadPluginFiles(_sourceURL,"SYS_MASTER.cs"));
-				//Debug.LogWarning("[Sys API]: Downloading SYS_MASTER.cs");
-				
+
 				Debug.LogWarning("[Sys API]: Downloading Sys API v" + newVC );
 				StartCoroutine(DownloadDataFiles(_sourceURL, Application.dataPath + "/Plugins/SysAPI/Scripts/","SYS_MASTER.cs"));
 				Debug.LogWarning("[Sys API]: Downloading SYS_MASTER.cs");
@@ -90,33 +86,13 @@ public class SysUpdateDownloader : MonoBehaviour {
 			}
 		}
 	}
-	
-	IEnumerator DownloadPluginFiles(string url, string fileName) {
-		
-		WWW www = new WWW(url);
-		yield return www;
-		string file = www.text;
-		if(www.isDone){
-			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-"+Sys.GetLine()+")");} else {
-				File.AppendAllText(Application.dataPath + "/Plugins/SysAPI/Scripts/" + fileName, file);
-				Debug.LogWarning("[Sys API]: " + fileName+ " successfully updated.");
-				dlCount++;
-				if(dlCount >= 6){
-					UnityEditor.EditorPrefs.SetString("VC",_currentVersion);
-					Destroy(this.gameObject);
-					UnityEditor.EditorApplication.isPlaying = false;
-					Destroy(this.gameObject);
-				}
-			}
-		}
-	}
-	
+
 	IEnumerator DownloadDataFiles(string url, string path, string fileName) {
 		WWW www = new WWW(url);
 		yield return www;
 		string file = www.text;
 		if(www.isDone){
-			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-"+Sys.GetLine()+")");} else {
+			if(file.Length == 0 || file == null){UnityEditor.EditorApplication.isPlaying = false; Debug.LogError("[Sys API] ERROR000: Unable to establish connection. (EC-SUD-119)");} else {
 				File.Create(path + fileName).Dispose();
 				File.AppendAllText(path + fileName, file);
 				Debug.LogWarning("[Sys API]: " + fileName + " successfully updated.");
