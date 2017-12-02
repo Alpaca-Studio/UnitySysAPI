@@ -830,5 +830,6 @@ namespace UnityEngine
 			
 		}
 		
+		public static string URLAntiCache(){ return "?t="+System.DateTime.Now.ToString("MMddyyyyhhmmss");}
     }
 }
