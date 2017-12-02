@@ -147,12 +147,12 @@ public class Sys_API_CSharp_Example : MonoBehaviour {
 		}
 		
 		if(SaveSystemInfo){
-			Sys.SaveSystemInfo(dataPath + "/" + sysFileName, true);
+			Info.SaveSystemInfo(dataPath + "/" + sysFileName, true);
 			SaveSystemInfo = false;
 		}
 		
 		if(GetSystemInfo){
-			SystemInfo = new List<string>(Sys.GetSystemInfo());
+			SystemInfo = new List<string>(Info.GetSystemInfo());
 			GetSystemInfo = false;
 		}
 		
