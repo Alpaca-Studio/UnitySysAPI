@@ -22,12 +22,14 @@ public class SysOptions : EditorWindow {
 		GameObject newObj = new GameObject("SysOptions");
 		newObj.AddComponent<SysUpdateDownloader>();
 	}
-	[MenuItem("Tools/Sys API/More Information")]
+	[MenuItem("Tools/Sys API/Wiki Documentation")]
 	public static void OpenWebpage () {
-		Application.OpenURL("https://www.alpaca.studio");
+		Application.OpenURL("https://github.com/Alpaca-Studio/UnitySysAPI/wiki");
 	}
 	
 	string _path;
+	string _docPath;
+	//List<string> VC = new List<string>();
 	string _currentVersion;
 	string _documentation;
 
@@ -36,9 +38,10 @@ public class SysOptions : EditorWindow {
 	Vector2 _scrollPosition;
 	
 	GameObject obj;
-
+	
 	void OnEnable () {
 		_path = Application.dataPath + "/Plugins/SysAPI/";
+		_docPath = Application.dataPath + "/Sys_API/";
 		if(!Directory.Exists(_path)){
 			Directory.CreateDirectory(_path);
 			File.Create(_path+"vc.dxt").Dispose();
@@ -56,7 +59,7 @@ public class SysOptions : EditorWindow {
 		}
 		
 		_documentation = "";
-		List<string> docu = new List<string>(File.ReadAllLines(_path+"Documentation.txt"));
+		List<string> docu = new List<string>(File.ReadAllLines(_docPath+"Documentation.txt"));
 		for(int i = 0; i < docu.Count; i++){
 			if(i==0){
 				_documentation += "<b>"+docu[i]+"</b> \n";
@@ -82,7 +85,7 @@ public class SysOptions : EditorWindow {
 		EditorPrefs.SetString("VC",_currentVersion);
 		
 		_documentation = "";
-		List<string> docu = new List<string>(File.ReadAllLines(_path+"Documentation.txt"));
+		List<string> docu = new List<string>(File.ReadAllLines(_docPath+"Documentation.txt"));
 		for(int i = 0; i < docu.Count; i++){
 			if(i==0){
 				_documentation += "<b>"+docu[i]+"</b> \n";
