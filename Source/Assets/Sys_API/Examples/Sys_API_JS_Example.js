@@ -107,12 +107,12 @@ import System.Collections.Generic;
 		}
 		
 		if(SaveSystemInfo){
-			Sys.SaveSystemInfo(dataPath + "/" + sysFileName, true);
+			Info.SaveSystemInfo(dataPath + "/" + sysFileName, true);
 			SaveSystemInfo = false;
 		}
 		
 		if(GetSystemInfo){
-			SystemInfo = new List.<String>(Sys.GetSystemInfo());
+			SystemInfo = new List.<String>(Info.GetSystemInfo());
 			GetSystemInfo = false;
 		}
 		
