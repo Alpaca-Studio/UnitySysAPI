@@ -1,5 +1,5 @@
-UnityEngine.Sys API Documentation v1.0.4b
-Revised: 10/10/2017
+UnityEngine.Sys API Documentation v1.0.5
+Revised: 12/02/2017
 
 
 LOGGING METHODS:
@@ -47,7 +47,40 @@ LOGGING METHODS:
 
 
 
-FILE SAVE/LOAD METHODS:
+FILE PERSISTANCE METHODS:
+	public static bool DirectoryCheck (string path)
+	-The path argument defines the directory to be checked. If the directory exists DirectoryCheck() will return true, else it will return false. 
+		PARAMETERS:
+			path - the directory to be checked.
+		USEAGE:
+			Sys.DirectoryCheck("Path/To/SomeFile");
+	__________________________________________________________________________________________
+	public static bool DirectoryCheck (string path, bool createDirectory)
+	-The path argument defines the directory to be checked. If the directory exists DirectoryCheck() will return true, else it will return false. 
+	-If the createDirectory argument is true, the given directory will be created if the directory has yet to exist.
+		PARAMETERS:
+			path - the directory to be checked.
+			createDirectory - if true, the directory will be created if it doesn't yet exist.
+		USEAGE:
+			Sys.DirectoryCheck("Path/To/SomeFile",true);
+	__________________________________________________________________________________________
+	public static bool FileCheck (string path)
+	-Similar to DirectoryCheck(), the path argument defines the file to be checked. 
+	-If the file exists FileCheck() will return true, else it will return false. 
+		PARAMETERS:
+			path - the path and file name to be checked.
+		USEAGE:
+			Sys.FileCheck("Path/To/SomeFile.txt");
+	__________________________________________________________________________________________	
+	public static bool FileCheck (string path, bool createDispose)
+	-The path argument defines the file to be checked. If the file exists FileCheck() will return true, else it will return false. 
+	-If the createDispose argument is true and the file doesn't yet exist, an empty will be created at the defined location.
+		PARAMETERS:
+			path - the path and file name to be checked.
+			createDispose - if true, an empty file will be created if the file defined by path doesn't yet exist.
+		USEAGE:
+			Sys.FileCheck("Path/To/SomeFile.txt",true);
+	__________________________________________________________________________________________	
 	public static void SaveDataToFile(string path, string[] data)
 		-Saves string array to a specified path. (Path must include file name and extension.)
 		-Alternatively, 'Sys.SaveFile(string path, string[] data)' will perfrom the same operation.
@@ -58,13 +91,13 @@ FILE SAVE/LOAD METHODS:
 			public string[] data = new string[]{"a","b","c"};
 				Sys.SaveDataToFile("Path_To_Text_File/SomeFile.txt", data);
 	__________________________________________________________________________________________	
-	public static void SaveDataToFile(string path, string[] data, bool openDirectory)
+	public static void SaveDataToFile(string path, string[] data, bool clearOldFiles)
 		-Saves string array to a specified path then opens file directory upon save. (Path must include file name and extension.)
 		-Alternatively, 'Sys.SaveFile(string path, string[] data, bool openDirectory)' will perfrom the same operation.
 		PARAMETERS:
 			path - desired path to save the text file.
 			data - the string array to be saved to text file.
-			openDirectory - if true, File Explorer will open the containing folder of your saved file (Desktop Only).
+			clearOldFiles - if true, the existing file data will be deleted before new data is written.
 		USEAGE:
 			public string[] data = new string[]{"a","b","c"};
 				Sys.SaveDataToFile("Path_To_Text_File/SomeFile.txt", data, true);	
@@ -132,7 +165,7 @@ SCREEN CAPTURING METHODS:
 
 	
 	
-BASIC ARITHMETIC METHODS:
+BASIC ARITHMETIC METHODS: [DEPRICIATED! v1.0.4 and under only]
 	public static int Add(int a, int b, int c, int d)
 		-Returns sum of any given multiple values.
 		-Will add anywhere from two to four separate values.
@@ -218,13 +251,14 @@ BASIC ARITHMETIC METHODS:
 
 	
 	
-SYSTEM INFORMATION METHODS:
+SYSTEM INFORMATION METHODS: [AS OF v1.0.5 SYSTEM INFORMATION METHODS NOW UNDER 'Info' CLASS]
 	public static void SaveSystemInfo (string path)
 		-Saves UnityEngine.SystemInfo data to a neatly formated text file at a specified path. (Path must include file name and extension.)
 		PARAMETERS:
 			path - the path to save UnityEngine.SystemInfo as a formatted text file.
 		USEAGE:
-			Sys.SaveSystemInfo("Path_To_Save/SystemInfo.txt");
+			Info.SaveSystemInfo("Path_To_Save/SystemInfo.txt");
+			// Sys.SaveSystemInfo("Path_To_Save/SystemInfo.txt"); //DEPRICIATED
 	__________________________________________________________________________________________
 	public static void SaveSystemInfo (string path, bool openDirectory)
 		-Saves UnityEngine.SystemInfo data to a neatly formated text file at a specified path then opens file directory upon save. (Path must include file name and extension.)
@@ -232,13 +266,15 @@ SYSTEM INFORMATION METHODS:
 			path - the path to save UnityEngine.SystemInfo as a formatted text file.
 			openDirectory - if true, File Explorer will open the containing folder of your saved file (Desktop Only).
 		USEAGE:
-			Sys.SaveSystemInfo("Path_To_Save/SystemInfo.txt", true);
+			Info.SaveSystemInfo("Path_To_Save/SystemInfo.txt", true);
+			// Sys.SaveSystemInfo("Path_To_Save/SystemInfo.txt", true); //DEPRICIATED
 	__________________________________________________________________________________________	
 	public static List<string> GetSystemInfo ()
 		-Returns formatted UnityEngine.SystemInfo to a list of strings.
 		USEAGE:
 			public List<string> systemInfo;
-				systemInfo = Sys.GetSystemInfo();
+				systemInfo = Info.GetSystemInfo();
+				// systemInfo = Sys.GetSystemInfo(); //DEPRICIATED
 	__________________________________________________________________________________________
 
 	
