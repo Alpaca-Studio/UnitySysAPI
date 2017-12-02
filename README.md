@@ -12,7 +12,7 @@ And the Sys API will handle all of the texture encoding and file saving. Continu
 __*If you are looking for information about contributing to the UnitySysAPI, check out [this guide](https://github.com/Alpaca-Studio/UnitySysAPI/wiki/Contributing-to-the-Sys-API).*__
 
 ## Using the Sys API
-The Sys API handles a variety of methods, such as: Logging/Debugging; Data Handling; Screen Capturing/Loading; Arithmetic; and System Information. We will cover a few of these below. If this is your first time using the Sys API, we recommend looking at this [guide](https://github.com/Alpaca-Studio/UnitySysAPI/wiki/Getting-Started).
+The Sys API handles a variety of methods, such as: Logging/Debugging; Data Handling; Screen Capturing/Loading; Arithmetic; and System Information. We will cover a few of these below. If this is your first time using the Sys API, we recommend looking at [Getting Started](https://github.com/Alpaca-Studio/UnitySysAPI/wiki/Getting-Started) in the wiki.
 ### Logging and Debugging
 The Sys API logging and debugging methods are relatively simple and very similar to using Debug.Log. One way we elaborated upon the basic Debug.Log was to create a “silent log” that captures and timestamps log messages and then allows them to be saved to any desired location. This way developers access their log via txt file for more in depth debugging. But only user declared messages appear in the log. It does not add Engine or System logging.
 So to add a message to the silent log:
