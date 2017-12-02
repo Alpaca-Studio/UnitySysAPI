@@ -1,5 +1,5 @@
 # Sys API for Unity
-##### Version: v1.0.4 | Requirements: Unity5+
+##### Version: v1.0.5 | Requirements: Unity5+
 
 ## About
 The **_Sys API_** is essentially an API layer for the _UnityEngine_. The Sys API adds an array of new methods as well as alternatives some older ones. The _Sys_ class lies within the _UnityEngine_ namespace, so it will already be imported into your scripts. You could also choose to import the Sys class via `using UnityEngine.Sys;` in C#, or `import UnityEngine.Sys;` in Javascript.
