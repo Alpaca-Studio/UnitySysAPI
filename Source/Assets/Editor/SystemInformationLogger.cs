@@ -1,4 +1,6 @@
-//---SystemInformationLogger--- Copyright (c)2017 Alpaca Studio [ http://alpaca.studio ]///
+//---SystemInformationLogger v1.0.0---// 
+///Created by Alpaca Studio [ http://alpaca.studio ]///
+///Provided as part of the UnitySysAPI. Check out the SysAPI here: https://github.com/Alpaca-Studio/UnitySysAPI
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
