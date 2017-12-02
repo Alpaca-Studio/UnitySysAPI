@@ -1,6 +1,6 @@
-//---SystemInformationLogger v1.0.0---// 
+///---SystemInformationLogger Editor Standalone v1.0.0---/// 
 ///Created by Alpaca Studio [ http://alpaca.studio ]///
-///Provided as part of the UnitySysAPI. Check out the SysAPI here: https://github.com/Alpaca-Studio/UnitySysAPI
+///Provided as part of the UnitySysAPI. Check out the SysAPI here: https://github.com/Alpaca-Studio/UnitySysAPI ///
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
