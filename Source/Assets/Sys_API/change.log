@@ -1,5 +1,25 @@
 //SYS API v1+ CHANGE LOG//
 
+[12/02/2017] - v1.0.5:
+	-Added Stack Trace methods to Sys class.
+	-Added 'URLAntiCache' method to Sys class.
+	-Split 'SystemInfo' methods into Info class.
+	-Purged unneeded comments and operations from package.
+	-Updated 'SysUpdateDownloader' to ignore /Plugins/SysAPI/Documentation.txt in v1.0.5 and up.
+	-Added 'Wiki Documentation' toolbar button.
+	-Removed 'More Information' toolbar button.
+	-Simplified 'Artithmetic Methods'.
+	-Added 'LogError' methods into the Sys class.
+	-Removed unneeded 'import' functions from 'Sys_API_JS_Example.js'.
+	-Implemented Sys Message Library to github source for detailed debugging and fixes.
+	-Added 'FileCheck' and 'DirectoryCheck' methods to the Sys class.
+	-Added 'DeviceDefaultStorage' method to Sys class.
+	-Updated Documentation.
+	-Minor bug fixes.
+	-Updated Sys.Log operations.
+	-Compiled new Unity Asset Package file'SystemInformationLogger_v1.0.0_EditorStandalone.unitypackage' file.
+	-Compiled updated Unity Asset Package file as 'UnityEngine.Sys_API_v1.0.5.unitypackage' file.
+
 [10/13/2017] - v1.0.4b:
 	-Changed 'Hash Code Generation Methods' to 'Unique Identifier Generation Methods'.
 	-Updated GitHub repositories to 1.0.4b.
