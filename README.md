@@ -2,9 +2,7 @@
 ##### Version: v1.0.5 | Requirements: Unity5+
 
 ## About
-The **_Sys API_** is essentially an API layer for the _UnityEngine_. The Sys API adds an array of new methods as well as alternatives some older ones. The _Sys_ class lies within the _UnityEngine_ namespace, so it will already be imported into your scripts. You could also choose to import the Sys class via `using UnityEngine.Sys;` in C#, or `import UnityEngine.Sys;` in Javascript.
-
-For example, saving a screenshot via `Application.CaptureScreenshot(“Screenshot.png”)` works pretty well and is very easy to use. However if you wanna dictate where you save that screenshot, you will have to jump through a few hoops.
+The **_Sys API_** is essentially an API layer for the _UnityEngine_. The UnitySysAPI provides developers to program common Unity methods quicker and efficently. Also it expands options for some basic operations. For example, saving a screenshot via `Application.CaptureScreenshot(“Screenshot.png”)` works pretty well and is very easy to use. However if you wanna dictate where you save that screenshot, you will have to jump through a few hoops.
 But with the Sys API you can simply use:
 ```Sys.CaptureScreenshot(this, “Path/To/Screenshot.png”);```
 And the Sys API will handle all of the texture encoding and file saving. Continue to _Using the Sys API_ to get started.
@@ -100,4 +98,4 @@ Lastly, pressing _‘Example’_ will generate a new game object named **_SYS_**
 
 For more information try checking out the [wiki](https://github.com/Alpaca-Studio/UnitySysAPI/wiki). There’s also a few other functions not covered in this readme. And for a more “hands-on” example, a look at the .cs and .js [examples](UnitySysAPI/Source/Assets/Sys_API/Examples).
 
-_The Sys API is looking for contributors. If you would like to contribute a useful method or a shortcut, please send a message to_ @Alpaca-Studio _so we can test and implement it into the api._
+_The Sys API is looking for contributors. If you would like to contribute a useful method or a shortcut, we made [this guide](https://github.com/Alpaca-Studio/UnitySysAPI/wiki/Contributing-to-the-Sys-API) to help you out.__
